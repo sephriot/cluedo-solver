@@ -14,16 +14,13 @@ for card in MyCards:
 print(KnowledgeBase)
 
 Questions = [
-    ['P1', 'I1', 'L1', 'PL1', 'PL2'],
-
-    ['P3', 'I4', 'L7', 'PL2', 'PL3'],
-    ['P1', 'I3', 'L1', 'PL4', 'PL3'],
-    ['P1', 'I3', 'L7', 'PL3', 'PL4'],
-    ['P1', 'I4', 'L7', 'PL2', 'PL4'],
-
-    ['P1', 'I5', 'L6', 'PL3', 'PL4'],
-    ['P1', 'I5', 'L6', 'PL2', 'PL4'],
-    ['P1', 'I5', 'L6', 'PL3', 'PL4']
+    ['P1', 'I1', 'L1', 'PL2', 'PL3'],
+    ['P3', 'I4', 'L7', 'PL3', 'PL4'],
+    ['P2', 'I3', 'L7', 'PL4', 'PL2'],
+    ['P5', 'I6', 'L4', 'PL2', 'PL4'],
+    ['P3', 'I4', 'L7', 'PL3', 'PL4'],
+    ['P3', 'I1', 'L1', 'PL4', 'PL2'],
+    ['P1', 'I1', 'L5', 'PL2', 'PL3'],
 ]
 
 changes = 1
@@ -31,11 +28,11 @@ while changes > 0:
     changes = 0
     for question in Questions:
         questionCpy = question.copy()
-        if KnowledgeBase.get(question[0]) is MyCardTag or KnowledgeBase.get(question[0]) is [question[-2], question[-1]]:
+        if KnowledgeBase.get(question[0]) is MyCardTag or KnowledgeBase.get(question[0]) is [question[-2], question[-1]] or (KnowledgeBase.get(question[0]) is not None and KnowledgeBase.get(question[0])[1] is not question[-1]):
             questionCpy.remove(question[0])
-        if KnowledgeBase.get(question[1]) is MyCardTag or KnowledgeBase.get(question[1]) is [question[-2], question[-1]]:
+        if KnowledgeBase.get(question[1]) is MyCardTag or KnowledgeBase.get(question[1]) is [question[-2], question[-1]] or (KnowledgeBase.get(question[1]) is not None and KnowledgeBase.get(question[1])[1] is not question[-1]):
             questionCpy.remove(question[1])
-        if KnowledgeBase.get(question[2]) is MyCardTag or KnowledgeBase.get(question[2]) is [question[-2], question[-1]]:
+        if KnowledgeBase.get(question[2]) is MyCardTag or KnowledgeBase.get(question[2]) is [question[-2], question[-1]] or (KnowledgeBase.get(question[2]) is not None and KnowledgeBase.get(question[2])[1] is not question[-1]):
             questionCpy.remove(question[2])
 
         if len(questionCpy) == 3:
